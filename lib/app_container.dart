@@ -72,11 +72,11 @@ class _AppContainerState extends State<AppContainer>
         items: const [
           BottomNavigationBarItem(
             icon: Icon(Icons.dashboard_outlined),
-            label: 'dashboard',
+            label: 'Trang chủ',
           ),
           BottomNavigationBarItem(
             icon: Icon(Icons.account_circle_outlined),
-            label: 'account',
+            label: 'Tài khoản',
           ),
         ],
         selectedFontSize: 12,

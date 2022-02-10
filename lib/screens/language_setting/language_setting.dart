@@ -65,7 +65,7 @@ class _LanguageSettingState extends State<LanguageSetting> {
         ),
         actions: [
           AppButton(
-            'apply',
+            'Áp dụng',
             onPressed: onChangeLanguage,
             type: ButtonType.text,
           ),

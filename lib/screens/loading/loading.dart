@@ -70,7 +70,7 @@ class _SplashScreenState extends State<SplashScreen> {
                     crossAxisAlignment: CrossAxisAlignment.center,
                     children: [
                       Text(
-                        'processing',
+                        'Đang xử lý...',
                         style: Theme.of(context)
                             .textTheme
                             .button!

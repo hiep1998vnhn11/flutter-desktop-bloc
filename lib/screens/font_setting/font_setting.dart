@@ -46,7 +46,7 @@ class _FontSettingState extends State<FontSetting> {
             ),
             actions: [
               AppButton(
-                'apply',
+                'Áp dụng',
                 onPressed: onChange,
                 type: ButtonType.text,
               ),

@@ -1,6 +1,5 @@
 import 'package:trello/blocs/bloc.dart';
 import 'package:trello/configs/config.dart';
-import 'package:trello/utils/utils.dart';
 import 'package:trello/widgets/widget.dart';
 import 'package:flutter/material.dart';
 import 'package:google_mobile_ads/google_mobile_ads.dart';
@@ -21,8 +20,6 @@ class _AccountState extends State<Account> {
   @override
   void initState() {
     super.initState();
-    //createBannerAd();
-    //createInterstitialAd();
   }
 
   @override
@@ -32,7 +29,6 @@ class _AccountState extends State<Account> {
     super.dispose();
   }
 
-  ///Create BannerAd
   void createBannerAd() {
     final banner = BannerAd(
       size: AdSize.largeBanner,
@@ -94,26 +90,26 @@ class _AccountState extends State<Account> {
       barrierDismissible: true,
       builder: (BuildContext context) {
         return AlertDialog(
-          title: Text('log_out'),
+          title: const Text('Đăng xuất'),
           content: SingleChildScrollView(
             child: Column(
-              children: <Widget>[
+              children: const <Widget>[
                 Text(
-                  'would_you_like_log_out',
+                  'Bạn có muốn đăng xuất ngay?',
                 )
               ],
             ),
           ),
           actions: <Widget>[
             AppButton(
-              'close',
+              'Đóng',
               onPressed: () {
                 Navigator.pop(context, false);
               },
               type: ButtonType.text,
             ),
             AppButton(
-              'log_out',
+              'Đăng xuất',
               onPressed: () {
                 Navigator.pop(context, true);
               },
@@ -155,8 +151,8 @@ class _AccountState extends State<Account> {
           SliverAppBar(
             pinned: true,
             centerTitle: true,
-            title: Text(
-              'account',
+            title: const Text(
+              'Tài khoản',
             ),
             actions: [
               IconButton(
@@ -175,7 +171,7 @@ class _AccountState extends State<Account> {
                 children: [
                   const SizedBox(height: 8),
                   AppListTitle(
-                    title: 'setting',
+                    title: 'Cài đặt',
                     leading: Icon(
                       Icons.settings_outlined,
                       color: Theme.of(context).primaryColor,

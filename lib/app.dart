@@ -2,7 +2,6 @@ import 'package:trello/app_container.dart';
 import 'package:trello/blocs/bloc.dart';
 import 'package:trello/configs/config.dart';
 import 'package:trello/screens/screen.dart';
-import 'package:trello/utils/utils.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -30,8 +29,8 @@ class _AppState extends State<App> {
   Widget build(BuildContext context) {
     return MultiBlocProvider(
       providers: AppBloc.providers,
-      child: BlocBuilder<LanguageCubit, Locale>(
-        builder: (context, locale) {
+      child: BlocBuilder<LanguageCubit, dynamic>(
+        builder: (context, _) {
           return BlocBuilder<ThemeCubit, ThemeState>(
             builder: (context, theme) {
               return BlocBuilder<AuthenticationCubit, AuthenticationState>(
@@ -41,8 +40,6 @@ class _AppState extends State<App> {
                     theme: theme.lightTheme,
                     darkTheme: theme.darkTheme,
                     onGenerateRoute: Routes.generateRoute,
-                    locale: locale,
-                    supportedLocales: AppLanguage.supportLanguage,
                     home: Scaffold(
                       body: BlocListener<MessageBloc, MessageState>(
                         listener: (context, message) {

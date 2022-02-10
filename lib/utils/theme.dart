@@ -90,11 +90,11 @@ class UtilTheme {
   static String langDarkOption(DarkOption option) {
     switch (option) {
       case DarkOption.dynamic:
-        return "dynamic_theme";
+        return "Thiết bị hệ thống";
       case DarkOption.alwaysOff:
-        return "always_off";
+        return "Luôn tắt";
       default:
-        return "always_on";
+        return "Luôn mở";
     }
   }
 

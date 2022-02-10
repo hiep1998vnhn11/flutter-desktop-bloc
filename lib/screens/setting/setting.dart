@@ -2,7 +2,6 @@ import 'dart:async';
 
 import 'package:trello/blocs/bloc.dart';
 import 'package:trello/configs/config.dart';
-import 'package:trello/utils/language.dart';
 import 'package:trello/utils/utils.dart';
 import 'package:trello/widgets/widget.dart';
 import 'package:flutter/cupertino.dart';
@@ -59,26 +58,26 @@ class _SettingState extends State<Setting> {
       barrierDismissible: true,
       builder: (BuildContext context) {
         return AlertDialog(
-          title: Text('local_timezone'),
+          title: const Text('Múi giờ địa phương'),
           content: SingleChildScrollView(
             child: Column(
-              children: <Widget>[
+              children: const <Widget>[
                 Text(
-                  'would_you_like_apply_setting_timezone',
+                  'Bạn có muốn áp dụng cài đặt Múi giờ không?',
                 )
               ],
             ),
           ),
           actions: <Widget>[
             AppButton(
-              'close',
+              'Đóng',
               onPressed: () {
                 Navigator.pop(context, false);
               },
               type: ButtonType.text,
             ),
             AppButton(
-              'apply',
+              'Áp dụng',
               onPressed: () {
                 Navigator.pop(context, true);
               },
@@ -111,7 +110,7 @@ class _SettingState extends State<Setting> {
       builder: (BuildContext context) {
         darkOption = AppBloc.themeCubit.state.darkOption;
         return AlertDialog(
-          title: Text('dark_mode'),
+          title: const Text('Đổi chế độ'),
           content: StatefulBuilder(
             builder: (context, setState) {
               return SingleChildScrollView(
@@ -163,14 +162,14 @@ class _SettingState extends State<Setting> {
           ),
           actions: <Widget>[
             AppButton(
-              'close',
+              'Đóng',
               onPressed: () {
                 Navigator.pop(context, false);
               },
               type: ButtonType.text,
             ),
             AppButton(
-              'apply',
+              'Áp dụng',
               onPressed: () {
                 Navigator.pop(context, true);
               },
@@ -195,10 +194,10 @@ class _SettingState extends State<Setting> {
           parent: AlwaysScrollableScrollPhysics(),
         ),
         slivers: [
-          SliverAppBar(
+          const SliverAppBar(
             centerTitle: true,
             title: Text(
-              'setting',
+              'Cài đặt',
             ),
             pinned: true,
           ),
@@ -209,31 +208,10 @@ class _SettingState extends State<Setting> {
                 const SizedBox(height: 8),
                 AppListTitle(
                   leading: Icon(
-                    Icons.language_outlined,
-                    color: Theme.of(context).primaryColor,
-                  ),
-                  title: 'language',
-                  onPressed: () {
-                    onNavigate(Routes.changeLanguage);
-                  },
-                  trailing: Row(
-                    children: <Widget>[
-                      Text(
-                        UtilLanguage.getGlobalLanguageName(
-                          AppBloc.languageCubit.state.languageCode,
-                        ),
-                        style: Theme.of(context).textTheme.caption,
-                      ),
-                      const Icon(Icons.keyboard_arrow_right),
-                    ],
-                  ),
-                ),
-                AppListTitle(
-                  leading: Icon(
                     Icons.more_time,
                     color: Theme.of(context).primaryColor,
                   ),
-                  title: 'local_timezone',
+                  title: 'Múi giờ địa phương',
                   trailing: CupertinoSwitch(
                     value: localTimeZone,
                     activeColor: Theme.of(context).primaryColor,
@@ -245,7 +223,7 @@ class _SettingState extends State<Setting> {
                     Icons.notifications_active_outlined,
                     color: Theme.of(context).primaryColor,
                   ),
-                  title: 'notification',
+                  title: 'Thông báo',
                   trailing: CupertinoSwitch(
                     value: pushNotification,
                     activeColor: Theme.of(context).primaryColor,
@@ -262,7 +240,7 @@ class _SettingState extends State<Setting> {
                     Icons.email_outlined,
                     color: Theme.of(context).primaryColor,
                   ),
-                  title: 'email',
+                  title: 'Email',
                   trailing: CupertinoSwitch(
                     value: emailNotification,
                     activeColor: Theme.of(context).primaryColor,
@@ -279,7 +257,7 @@ class _SettingState extends State<Setting> {
                     Icons.security_outlined,
                     color: Theme.of(context).primaryColor,
                   ),
-                  title: 'alert_login',
+                  title: 'Thông báo đăng nhập',
                   trailing: CupertinoSwitch(
                     value: alertLogin,
                     activeColor: Theme.of(context).primaryColor,
@@ -296,7 +274,7 @@ class _SettingState extends State<Setting> {
                     Icons.color_lens_outlined,
                     color: Theme.of(context).primaryColor,
                   ),
-                  title: 'theme',
+                  title: 'Chủ đề',
                   onPressed: () {
                     onNavigate(Routes.themeSetting);
                   },
@@ -312,7 +290,7 @@ class _SettingState extends State<Setting> {
                     Icons.nights_stay_outlined,
                     color: Theme.of(context).primaryColor,
                   ),
-                  title: 'dark_mode',
+                  title: 'Chế độ tối',
                   onPressed: showDarkModeSetting,
                   trailing: Row(
                     children: <Widget>[
@@ -329,7 +307,7 @@ class _SettingState extends State<Setting> {
                     Icons.font_download_outlined,
                     color: Theme.of(context).primaryColor,
                   ),
-                  title: 'font',
+                  title: 'Font',
                   onPressed: () {
                     onNavigate(Routes.fontSetting);
                   },

@@ -60,27 +60,26 @@ class _ThemeSettingState extends State<ThemeSetting> {
       builder: (BuildContext context) {
         Color? selected;
         return AlertDialog(
-          title: Text('choose_color'),
+          title: const Text('Chọn màu sắc bạn muốn'),
           content: SingleChildScrollView(
             child: ColorPicker(
               pickerColor: current,
               onColorChanged: (color) {
                 selected = color;
               },
-              showLabel: true,
               pickerAreaHeightPercent: 0.8,
             ),
           ),
           actions: <Widget>[
             AppButton(
-              'close',
+              'Đóng',
               onPressed: () {
                 Navigator.pop(context);
               },
               type: ButtonType.text,
             ),
             AppButton(
-              'apply',
+              'Áp dụng',
               onPressed: () {
                 Navigator.pop(context, selected);
               },
@@ -157,7 +156,7 @@ class _ThemeSettingState extends State<ThemeSetting> {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Text(
-                    'primary_color',
+                    'Màu sơ cấp',
                     style: Theme.of(context)
                         .textTheme
                         .subtitle1!
@@ -173,7 +172,7 @@ class _ThemeSettingState extends State<ThemeSetting> {
                         borderRadius: BorderRadius.circular(4),
                       ),
                     ),
-                    title: 'choose_color',
+                    title: 'Bấm vào để chọn',
                     onPressed: onChoosePrimary,
                   )
                 ],
@@ -185,7 +184,7 @@ class _ThemeSettingState extends State<ThemeSetting> {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Text(
-                    'secondary_color',
+                    'Màu thứ cấp',
                     style: Theme.of(context)
                         .textTheme
                         .subtitle1!
@@ -202,7 +201,7 @@ class _ThemeSettingState extends State<ThemeSetting> {
                         borderRadius: BorderRadius.circular(4),
                       ),
                     ),
-                    title: 'choose_color',
+                    title: 'Bấm vào để chọn',
                     onPressed: onChooseSecondary,
                   )
                 ],
@@ -223,13 +222,13 @@ class _ThemeSettingState extends State<ThemeSetting> {
     return Scaffold(
       appBar: AppBar(
         centerTitle: true,
-        title: Text(
-          'theme',
+        title: const Text(
+          'Chủ đề',
         ),
         elevation: 0,
         actions: [
           AppButton(
-            'apply',
+            'Áp dụng',
             onPressed: onChange,
             type: ButtonType.text,
           ),
@@ -243,7 +242,7 @@ class _ThemeSettingState extends State<ThemeSetting> {
                 Icons.color_lens_outlined,
                 color: Theme.of(context).primaryColor,
               ),
-              title: 'custom_color',
+              title: 'Tuỳ chỉnh màu sắc',
               trailing: CupertinoSwitch(
                 activeColor: Theme.of(context).primaryColor,
                 value: custom,
