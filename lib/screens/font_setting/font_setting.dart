@@ -42,11 +42,11 @@ class _FontSettingState extends State<FontSetting> {
           SliverAppBar(
             centerTitle: true,
             title: Text(
-              Translate.of(context).translate('font'),
+              'font',
             ),
             actions: [
               AppButton(
-                Translate.of(context).translate('apply'),
+                'apply',
                 onPressed: onChange,
                 type: ButtonType.text,
               ),

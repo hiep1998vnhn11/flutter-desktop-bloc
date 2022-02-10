@@ -42,7 +42,7 @@ class AppUserItem extends StatelessWidget {
         children: [
           const SizedBox(height: 8),
           AppButton(
-            Translate.of(context).translate('set_active'),
+            'set_active',
             loading: processing,
             disabled: processing,
             onPressed: onActive!,
@@ -125,7 +125,7 @@ class AppUserItem extends StatelessWidget {
                           .copyWith(fontWeight: FontWeight.bold),
                     ),
                     Text(
-                      '${Translate.of(context).translate('last_used')} ${UtilTimeZone.viewTime(user.lastUsed)}',
+                      '${'last_used'} ${UtilTimeZone.viewTime(user.lastUsed)}',
                       style: Theme.of(context).textTheme.caption,
                     ),
                   ],

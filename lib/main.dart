@@ -25,8 +25,10 @@ class AppBlocObserver extends BlocObserver {
 }
 
 Future<void> main() async {
-  BlocOverrides.runZoned(() => null, blocObserver: AppBlocObserver());
-  // WidgetsFlutterBinding.ensureInitialized();
-  // Bloc.observer = AppBlocObserver();
-  runApp(const App());
+  BlocOverrides.runZoned(
+    () => runApp(
+      const App(),
+    ),
+    blocObserver: AppBlocObserver(),
+  );
 }

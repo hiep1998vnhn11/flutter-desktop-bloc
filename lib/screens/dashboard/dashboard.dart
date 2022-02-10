@@ -26,12 +26,12 @@ class _DashBoardState extends State<DashBoard> {
     return Scaffold(
       appBar: AppBar(
         title: Text(
-          Translate.of(context).translate('dashboard'),
+          'dashboard',
         ),
       ),
       body: Center(
         child: Text(
-          Translate.of(context).translate('dashboard'),
+          'dashboard',
         ),
       ),
     );

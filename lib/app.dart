@@ -50,17 +50,13 @@ class _AppState extends State<App> {
                             SnackBarAction? action;
                             if (message.action != null) {
                               action = SnackBarAction(
-                                label: Translate.of(context).translate(
-                                  message.action!,
-                                ),
+                                label: 'OK',
                                 onPressed: message.onPressed!,
                               );
                             }
                             final snackBar = SnackBar(
-                              content: Text(
-                                Translate.of(context).translate(
-                                  message.text,
-                                ),
+                              content: const Text(
+                                'Canvel',
                               ),
                               action: action,
                               duration: Duration(

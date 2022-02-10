@@ -24,6 +24,7 @@ class Application {
 
   static Future<void> setDeviceToken() async {
     final token = await UtilDevice.getDeviceToken();
+    if (device == null) return;
     device!.newToken = token;
   }
 

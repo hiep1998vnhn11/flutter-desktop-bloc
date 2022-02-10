@@ -6,9 +6,7 @@ import 'package:trello/configs/config.dart';
 import 'package:trello/database/provider.dart';
 import 'package:trello/models/model.dart';
 import 'package:trello/utils/utils.dart';
-import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
-import 'package:google_mobile_ads/google_mobile_ads.dart';
 
 enum ApplicationState { loading, completed }
 
@@ -17,12 +15,6 @@ class ApplicationCubit extends Cubit<ApplicationState> {
 
   ///On Setup Application
   void onSetup() async {
-    ///Firebase init
-    await Firebase.initializeApp();
-
-    ///Ads init
-    await MobileAds.instance.initialize();
-
     ///Setup SharedPreferences
     await Preferences.setPreferences();
 

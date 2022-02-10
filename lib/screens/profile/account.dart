@@ -21,8 +21,8 @@ class _AccountState extends State<Account> {
   @override
   void initState() {
     super.initState();
-    createBannerAd();
-    createInterstitialAd();
+    //createBannerAd();
+    //createInterstitialAd();
   }
 
   @override
@@ -94,26 +94,26 @@ class _AccountState extends State<Account> {
       barrierDismissible: true,
       builder: (BuildContext context) {
         return AlertDialog(
-          title: Text(Translate.of(context).translate('log_out')),
+          title: Text('log_out'),
           content: SingleChildScrollView(
             child: Column(
               children: <Widget>[
                 Text(
-                  Translate.of(context).translate('would_you_like_log_out'),
+                  'would_you_like_log_out',
                 )
               ],
             ),
           ),
           actions: <Widget>[
             AppButton(
-              Translate.of(context).translate('close'),
+              'close',
               onPressed: () {
                 Navigator.pop(context, false);
               },
               type: ButtonType.text,
             ),
             AppButton(
-              Translate.of(context).translate('log_out'),
+              'log_out',
               onPressed: () {
                 Navigator.pop(context, true);
               },
@@ -156,7 +156,7 @@ class _AccountState extends State<Account> {
             pinned: true,
             centerTitle: true,
             title: Text(
-              Translate.of(context).translate('account'),
+              'account',
             ),
             actions: [
               IconButton(
@@ -175,7 +175,7 @@ class _AccountState extends State<Account> {
                 children: [
                   const SizedBox(height: 8),
                   AppListTitle(
-                    title: Translate.of(context).translate('setting'),
+                    title: 'setting',
                     leading: Icon(
                       Icons.settings_outlined,
                       color: Theme.of(context).primaryColor,

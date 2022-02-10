@@ -61,11 +61,11 @@ class _LanguageSettingState extends State<LanguageSetting> {
         centerTitle: true,
         elevation: 0,
         title: Text(
-          Translate.of(context).translate('change_language'),
+          'change_language',
         ),
         actions: [
           AppButton(
-            Translate.of(context).translate('apply'),
+            'apply',
             onPressed: onChangeLanguage,
             type: ButtonType.text,
           ),
@@ -82,8 +82,8 @@ class _LanguageSettingState extends State<LanguageSetting> {
                 bottom: 8,
               ),
               child: AppTextInput(
-                labelText: Translate.of(context).translate('language'),
-                hintText: Translate.of(context).translate('search'),
+                labelText: 'language',
+                hintText: 'search',
                 controller: textLanguageController,
                 maxLines: 1,
                 onChanged: onFilter,

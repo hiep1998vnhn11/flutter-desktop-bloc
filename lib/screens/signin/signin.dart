@@ -45,7 +45,7 @@ class _SignInState extends State<SignIn> {
       context,
       Routes.webView,
       arguments: WebViewModel(
-        title: Translate.of(context).translate('privacy'),
+        title: 'privacy',
         url: "https://saleboltapp.com/privacy-policy.html",
       ),
     );
@@ -93,18 +93,14 @@ class _SignInState extends State<SignIn> {
                                 Padding(
                                   padding: const EdgeInsets.all(24),
                                   child: Text(
-                                    Translate.of(context).translate(
-                                      'app_slogan',
-                                    ),
+                                    'Tìm kiếm doanh số bán hàng mới cho Envato Market Author.',
                                     style:
                                         Theme.of(context).textTheme.bodyText2,
                                     textAlign: TextAlign.center,
                                   ),
                                 ),
                                 AppButton(
-                                  Translate.of(context).translate(
-                                    'login_with_envato',
-                                  ),
+                                  'Đăng nhập bằng Envato',
                                   icon: Image.asset(
                                     Images.envato,
                                     width: 24,
@@ -121,13 +117,13 @@ class _SignInState extends State<SignIn> {
                       ),
                       const SizedBox(height: 8),
                       Text(
-                        Translate.of(context).translate('app_noted'),
+                        'Ứng dụng này được cung cấp bởi Envato API và sẽ không lưu trữ tên người dùng và mật khẩu của bạn.',
                         style: Theme.of(context).textTheme.caption,
                         textAlign: TextAlign.center,
                       ),
                       const SizedBox(height: 8),
                       AppButton(
-                        Translate.of(context).translate('privacy'),
+                        'privacy',
                         onPressed: onPrivacy,
                         mainAxisSize: MainAxisSize.max,
                         type: ButtonType.text,

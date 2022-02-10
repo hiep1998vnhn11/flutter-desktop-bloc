@@ -59,28 +59,26 @@ class _SettingState extends State<Setting> {
       barrierDismissible: true,
       builder: (BuildContext context) {
         return AlertDialog(
-          title: Text(Translate.of(context).translate('local_timezone')),
+          title: Text('local_timezone'),
           content: SingleChildScrollView(
             child: Column(
               children: <Widget>[
                 Text(
-                  Translate.of(context).translate(
-                    'would_you_like_apply_setting_timezone',
-                  ),
+                  'would_you_like_apply_setting_timezone',
                 )
               ],
             ),
           ),
           actions: <Widget>[
             AppButton(
-              Translate.of(context).translate('close'),
+              'close',
               onPressed: () {
                 Navigator.pop(context, false);
               },
               type: ButtonType.text,
             ),
             AppButton(
-              Translate.of(context).translate('apply'),
+              'apply',
               onPressed: () {
                 Navigator.pop(context, true);
               },
@@ -113,7 +111,7 @@ class _SettingState extends State<Setting> {
       builder: (BuildContext context) {
         darkOption = AppBloc.themeCubit.state.darkOption;
         return AlertDialog(
-          title: Text(Translate.of(context).translate('dark_mode')),
+          title: Text('dark_mode'),
           content: StatefulBuilder(
             builder: (context, setState) {
               return SingleChildScrollView(
@@ -121,9 +119,7 @@ class _SettingState extends State<Setting> {
                   children: <Widget>[
                     RadioListTile<DarkOption>(
                       title: Text(
-                        Translate.of(context).translate(
-                          UtilTheme.langDarkOption(DarkOption.dynamic),
-                        ),
+                        UtilTheme.langDarkOption(DarkOption.dynamic),
                       ),
                       activeColor: Theme.of(context).primaryColor,
                       value: DarkOption.dynamic,
@@ -136,9 +132,7 @@ class _SettingState extends State<Setting> {
                     ),
                     RadioListTile<DarkOption>(
                       title: Text(
-                        Translate.of(context).translate(
-                          UtilTheme.langDarkOption(DarkOption.alwaysOn),
-                        ),
+                        UtilTheme.langDarkOption(DarkOption.alwaysOn),
                       ),
                       activeColor: Theme.of(context).primaryColor,
                       value: DarkOption.alwaysOn,
@@ -151,9 +145,7 @@ class _SettingState extends State<Setting> {
                     ),
                     RadioListTile<DarkOption>(
                       title: Text(
-                        Translate.of(context).translate(
-                          UtilTheme.langDarkOption(DarkOption.alwaysOff),
-                        ),
+                        UtilTheme.langDarkOption(DarkOption.alwaysOff),
                       ),
                       activeColor: Theme.of(context).primaryColor,
                       value: DarkOption.alwaysOff,
@@ -171,14 +163,14 @@ class _SettingState extends State<Setting> {
           ),
           actions: <Widget>[
             AppButton(
-              Translate.of(context).translate('close'),
+              'close',
               onPressed: () {
                 Navigator.pop(context, false);
               },
               type: ButtonType.text,
             ),
             AppButton(
-              Translate.of(context).translate('apply'),
+              'apply',
               onPressed: () {
                 Navigator.pop(context, true);
               },
@@ -196,7 +188,7 @@ class _SettingState extends State<Setting> {
 
   @override
   Widget build(BuildContext context) {
-    String defaultFont = Translate.of(context).translate('default');
+    String defaultFont = 'default';
     return Scaffold(
       body: CustomScrollView(
         physics: const BouncingScrollPhysics(
@@ -206,7 +198,7 @@ class _SettingState extends State<Setting> {
           SliverAppBar(
             centerTitle: true,
             title: Text(
-              Translate.of(context).translate('setting'),
+              'setting',
             ),
             pinned: true,
           ),
@@ -220,7 +212,7 @@ class _SettingState extends State<Setting> {
                     Icons.language_outlined,
                     color: Theme.of(context).primaryColor,
                   ),
-                  title: Translate.of(context).translate('language'),
+                  title: 'language',
                   onPressed: () {
                     onNavigate(Routes.changeLanguage);
                   },
@@ -241,7 +233,7 @@ class _SettingState extends State<Setting> {
                     Icons.more_time,
                     color: Theme.of(context).primaryColor,
                   ),
-                  title: Translate.of(context).translate('local_timezone'),
+                  title: 'local_timezone',
                   trailing: CupertinoSwitch(
                     value: localTimeZone,
                     activeColor: Theme.of(context).primaryColor,
@@ -253,7 +245,7 @@ class _SettingState extends State<Setting> {
                     Icons.notifications_active_outlined,
                     color: Theme.of(context).primaryColor,
                   ),
-                  title: Translate.of(context).translate('notification'),
+                  title: 'notification',
                   trailing: CupertinoSwitch(
                     value: pushNotification,
                     activeColor: Theme.of(context).primaryColor,
@@ -270,7 +262,7 @@ class _SettingState extends State<Setting> {
                     Icons.email_outlined,
                     color: Theme.of(context).primaryColor,
                   ),
-                  title: Translate.of(context).translate('email'),
+                  title: 'email',
                   trailing: CupertinoSwitch(
                     value: emailNotification,
                     activeColor: Theme.of(context).primaryColor,
@@ -287,7 +279,7 @@ class _SettingState extends State<Setting> {
                     Icons.security_outlined,
                     color: Theme.of(context).primaryColor,
                   ),
-                  title: Translate.of(context).translate('alert_login'),
+                  title: 'alert_login',
                   trailing: CupertinoSwitch(
                     value: alertLogin,
                     activeColor: Theme.of(context).primaryColor,
@@ -304,7 +296,7 @@ class _SettingState extends State<Setting> {
                     Icons.color_lens_outlined,
                     color: Theme.of(context).primaryColor,
                   ),
-                  title: Translate.of(context).translate('theme'),
+                  title: 'theme',
                   onPressed: () {
                     onNavigate(Routes.themeSetting);
                   },
@@ -320,14 +312,12 @@ class _SettingState extends State<Setting> {
                     Icons.nights_stay_outlined,
                     color: Theme.of(context).primaryColor,
                   ),
-                  title: Translate.of(context).translate('dark_mode'),
+                  title: 'dark_mode',
                   onPressed: showDarkModeSetting,
                   trailing: Row(
                     children: <Widget>[
                       Text(
-                        Translate.of(context).translate(
-                          UtilTheme.langDarkOption(darkOption),
-                        ),
+                        UtilTheme.langDarkOption(darkOption),
                         style: Theme.of(context).textTheme.caption,
                       ),
                       const Icon(Icons.keyboard_arrow_right),
@@ -339,7 +329,7 @@ class _SettingState extends State<Setting> {
                     Icons.font_download_outlined,
                     color: Theme.of(context).primaryColor,
                   ),
-                  title: Translate.of(context).translate('font'),
+                  title: 'font',
                   onPressed: () {
                     onNavigate(Routes.fontSetting);
                   },

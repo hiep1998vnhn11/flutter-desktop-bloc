@@ -60,7 +60,7 @@ class _ThemeSettingState extends State<ThemeSetting> {
       builder: (BuildContext context) {
         Color? selected;
         return AlertDialog(
-          title: Text(Translate.of(context).translate('choose_color')),
+          title: Text('choose_color'),
           content: SingleChildScrollView(
             child: ColorPicker(
               pickerColor: current,
@@ -73,14 +73,14 @@ class _ThemeSettingState extends State<ThemeSetting> {
           ),
           actions: <Widget>[
             AppButton(
-              Translate.of(context).translate('close'),
+              'close',
               onPressed: () {
                 Navigator.pop(context);
               },
               type: ButtonType.text,
             ),
             AppButton(
-              Translate.of(context).translate('apply'),
+              'apply',
               onPressed: () {
                 Navigator.pop(context, selected);
               },
@@ -130,7 +130,7 @@ class _ThemeSettingState extends State<ThemeSetting> {
         }
 
         return AppListTitle(
-          title: Translate.of(context).translate(item.name),
+          title: item.name,
           leading: Container(
             width: 24,
             height: 24,
@@ -157,7 +157,7 @@ class _ThemeSettingState extends State<ThemeSetting> {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Text(
-                    Translate.of(context).translate('primary_color'),
+                    'primary_color',
                     style: Theme.of(context)
                         .textTheme
                         .subtitle1!
@@ -173,7 +173,7 @@ class _ThemeSettingState extends State<ThemeSetting> {
                         borderRadius: BorderRadius.circular(4),
                       ),
                     ),
-                    title: Translate.of(context).translate('choose_color'),
+                    title: 'choose_color',
                     onPressed: onChoosePrimary,
                   )
                 ],
@@ -185,7 +185,7 @@ class _ThemeSettingState extends State<ThemeSetting> {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Text(
-                    Translate.of(context).translate('secondary_color'),
+                    'secondary_color',
                     style: Theme.of(context)
                         .textTheme
                         .subtitle1!
@@ -202,7 +202,7 @@ class _ThemeSettingState extends State<ThemeSetting> {
                         borderRadius: BorderRadius.circular(4),
                       ),
                     ),
-                    title: Translate.of(context).translate('choose_color'),
+                    title: 'choose_color',
                     onPressed: onChooseSecondary,
                   )
                 ],
@@ -224,12 +224,12 @@ class _ThemeSettingState extends State<ThemeSetting> {
       appBar: AppBar(
         centerTitle: true,
         title: Text(
-          Translate.of(context).translate('theme'),
+          'theme',
         ),
         elevation: 0,
         actions: [
           AppButton(
-            Translate.of(context).translate('apply'),
+            'apply',
             onPressed: onChange,
             type: ButtonType.text,
           ),
@@ -243,7 +243,7 @@ class _ThemeSettingState extends State<ThemeSetting> {
                 Icons.color_lens_outlined,
                 color: Theme.of(context).primaryColor,
               ),
-              title: Translate.of(context).translate('custom_color'),
+              title: 'custom_color',
               trailing: CupertinoSwitch(
                 activeColor: Theme.of(context).primaryColor,
                 value: custom,

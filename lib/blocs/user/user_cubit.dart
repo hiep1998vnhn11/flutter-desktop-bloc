@@ -2,7 +2,6 @@ import 'package:bloc/bloc.dart';
 import 'package:trello/database/provider.dart';
 import 'package:trello/models/model.dart';
 import 'package:trello/repository/repository.dart';
-import 'package:firebase_messaging/firebase_messaging.dart';
 
 class UserCubit extends Cubit<UserModel?> {
   UserCubit() : super(null);
@@ -44,7 +43,6 @@ class UserCubit extends Cubit<UserModel?> {
   ///On delete user
   void onClear() async {
     await DatabaseProvider.clearDatabase();
-    FirebaseMessaging.instance.deleteToken();
     emit(null);
   }
 }

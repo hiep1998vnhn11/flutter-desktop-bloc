@@ -2,8 +2,6 @@ import 'dart:async';
 
 import 'package:trello/blocs/bloc.dart';
 import 'package:trello/screens/screen.dart';
-import 'package:trello/utils/utils.dart';
-import 'package:firebase_messaging/firebase_messaging.dart';
 import 'package:flutter/material.dart';
 
 class AppContainer extends StatefulWidget {
@@ -18,21 +16,14 @@ class AppContainer extends StatefulWidget {
 class _AppContainerState extends State<AppContainer>
     with WidgetsBindingObserver {
   late StreamSubscription signSubscription;
-  late StreamSubscription<RemoteMessage> onMessage;
-  late StreamSubscription<RemoteMessage> onMessageOpenedApp;
+  late StreamSubscription<String> onMessage;
+  late StreamSubscription<String> onMessageOpenedApp;
 
   int selectedIndex = 0;
 
   @override
   void initState() {
     super.initState();
-
-    ///Remote notification listen
-    onMessage = FirebaseMessaging.onMessage.listen((message) {});
-
-    ///Remote notification listen
-    onMessageOpenedApp =
-        FirebaseMessaging.onMessageOpenedApp.listen((message) {});
 
     ///AppState add observer
     WidgetsBinding.instance!.addObserver(this);
@@ -78,14 +69,14 @@ class _AppContainerState extends State<AppContainer>
         index: selectedIndex,
       ),
       bottomNavigationBar: BottomNavigationBar(
-        items: [
+        items: const [
           BottomNavigationBarItem(
-            icon: const Icon(Icons.dashboard_outlined),
-            label: Translate.of(context).translate('dashboard'),
+            icon: Icon(Icons.dashboard_outlined),
+            label: 'dashboard',
           ),
           BottomNavigationBarItem(
-            icon: const Icon(Icons.account_circle_outlined),
-            label: Translate.of(context).translate('account'),
+            icon: Icon(Icons.account_circle_outlined),
+            label: 'account',
           ),
         ],
         selectedFontSize: 12,

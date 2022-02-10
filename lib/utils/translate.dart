@@ -9,8 +9,8 @@ class Translate {
 
   Translate(this.locale);
 
-  static Translate of(BuildContext context) {
-    return Localizations.of<Translate>(context, Translate)!;
+  static Translate? of(BuildContext context) {
+    return Localizations.of<Translate>(context, Translate);
   }
 
   Future<bool> load() async {

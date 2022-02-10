@@ -3,7 +3,6 @@ import 'dart:io';
 import 'package:device_info/device_info.dart';
 import 'package:trello/models/model.dart';
 import 'package:trello/utils/logger.dart';
-import 'package:firebase_messaging/firebase_messaging.dart';
 
 class UtilDevice {
   static Future<DeviceModel?> loadDevice() async {
@@ -36,8 +35,7 @@ class UtilDevice {
 
   static Future<String?> getDeviceToken() async {
     try {
-      await FirebaseMessaging.instance.requestPermission();
-      return await FirebaseMessaging.instance.getToken();
+      return null;
     } catch (error) {
       UtilLogger.log("ERROR", error);
     }
