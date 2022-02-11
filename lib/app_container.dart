@@ -3,6 +3,7 @@ import 'dart:async';
 import 'package:trello/blocs/bloc.dart';
 import 'package:trello/screens/screen.dart';
 import 'package:flutter/material.dart';
+import './widgets/widget.dart';
 
 class AppContainer extends StatefulWidget {
   const AppContainer({Key? key}) : super(key: key);
@@ -64,25 +65,11 @@ class _AppContainerState extends State<AppContainer>
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: IndexedStack(
-        children: const <Widget>[DashBoard(), Account()],
-        index: selectedIndex,
-      ),
-      bottomNavigationBar: BottomNavigationBar(
-        items: const [
-          BottomNavigationBarItem(
-            icon: Icon(Icons.dashboard_outlined),
-            label: 'Trang chủ',
-          ),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.account_circle_outlined),
-            label: 'Tài khoản',
-          ),
-        ],
-        selectedFontSize: 12,
-        unselectedFontSize: 10,
-        currentIndex: selectedIndex,
-        onTap: onItemTapped,
+      body: const Setting(),
+      bottomNavigationBar: Container(
+        height: 100,
+        color: Theme.of(context).primaryColor,
+        child: const BottomBar(),
       ),
     );
   }

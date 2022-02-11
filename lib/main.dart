@@ -1,8 +1,11 @@
+import 'dart:io';
+
 import 'package:bloc/bloc.dart';
 import 'package:trello/app.dart';
 import 'package:trello/utils/utils.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
+import 'package:window_size/window_size.dart';
 
 class AppBlocObserver extends BlocObserver {
   @override
@@ -25,6 +28,11 @@ class AppBlocObserver extends BlocObserver {
 }
 
 Future<void> main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  if (Platform.isWindows || Platform.isLinux || Platform.isMacOS) {
+    setWindowTitle("Spotify");
+    setWindowMinSize(const Size(800, 600));
+  }
   BlocOverrides.runZoned(
     () => runApp(
       const App(),

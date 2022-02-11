@@ -5,3 +5,4 @@ export 'app_placeholder.dart';
 export 'app_tag.dart';
 export 'app_text_input.dart';
 export 'app_user_item.dart';
+export 'bottom_bar.dart';

@@ -69,18 +69,18 @@ class HTTPManager {
           ///Logout
           if (rejectCode.contains(message)) {
             dioInternal.lock();
-            dioInternal.interceptors.responseLock.lock();
-            dioInternal.interceptors.errorLock.lock();
+            // dioInternal.interceptors.responseLock.lock();
+            // dioInternal.interceptors.errorLock.lock();
             dioExternal.lock();
-            dioExternal.interceptors.responseLock.lock();
-            dioExternal.interceptors.errorLock.lock();
+            // dioExternal.interceptors.responseLock.lock();
+            // dioExternal.interceptors.errorLock.lock();
             await AppBloc.signCubit.onLogOut();
             dioExternal.unlock();
-            dioExternal.interceptors.responseLock.unlock();
-            dioExternal.interceptors.errorLock.unlock();
+            // dioExternal.interceptors.responseLock.unlock();
+            // dioExternal.interceptors.errorLock.unlock();
             dioInternal.unlock();
-            dioInternal.interceptors.responseLock.unlock();
-            dioInternal.interceptors.errorLock.unlock();
+            // dioInternal.interceptors.responseLock.unlock();
+            // dioInternal.interceptors.errorLock.unlock();
           }
           final response = Response(
             requestOptions: error.requestOptions,
@@ -120,8 +120,8 @@ class HTTPManager {
 
           if (error.response?.statusCode == 403) {
             dioExternal.lock();
-            dioExternal.interceptors.responseLock.lock();
-            dioExternal.interceptors.errorLock.lock();
+            // dioExternal.interceptors.responseLock.lock();
+            // dioExternal.interceptors.errorLock.lock();
             final user = await AppBloc.userCubit.onLoadUser();
             if (user != null) {
               String? token = user.envatoToken;
@@ -129,8 +129,8 @@ class HTTPManager {
                 options.headers["Authorization"] = "Bearer $token";
               }
               dioExternal.unlock();
-              dioExternal.interceptors.responseLock.unlock();
-              dioExternal.interceptors.errorLock.unlock();
+              // dioExternal.interceptors.responseLock.unlock();
+              // dioExternal.interceptors.errorLock.unlock();
               printRequest(options);
               dioExternal.fetch(options).then(
                 (r) => handler.resolve(r),
