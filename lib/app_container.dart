@@ -65,7 +65,20 @@ class _AppContainerState extends State<AppContainer>
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: const Setting(),
+      body: Row(
+        children: <Widget>[
+          Container(
+            width: 250,
+          ),
+          const Expanded(
+            child: Setting(),
+          ),
+          Container(
+            width: 250,
+            color: Colors.red,
+          ),
+        ],
+      ),
       bottomNavigationBar: Container(
         height: 100,
         color: Theme.of(context).primaryColor,

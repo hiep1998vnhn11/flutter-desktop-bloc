@@ -35,7 +35,9 @@ class _BottomBarState extends State<BottomBar> {
     return Row(
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
       children: [
-        const SizedBox(),
+        const SizedBox(
+          width: 240,
+        ),
         Column(
           children: [
             SizedBox(
@@ -96,7 +98,7 @@ class _BottomBarState extends State<BottomBar> {
           ],
         ),
         SizedBox(
-          width: 300,
+          width: 240,
           child: Row(
             mainAxisAlignment: MainAxisAlignment.end,
             children: <Widget>[
